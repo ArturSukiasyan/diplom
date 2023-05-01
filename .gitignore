@@ -1,15 +1,5 @@
 #!.idea/
 .idea/*
 !.idea/runConfigurations/
-local/config.override.yml
 *.iml
 */target/*
-.local_config
-local.properties
-logback.groovy
-buildsystem/*.py
-*.DS_Store
-
-*.retry
-scripts/bootstrap/ansible/out
-/local/infra/*
