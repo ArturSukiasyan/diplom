@@ -16,12 +16,6 @@ public class PhoneNumberValidator implements ConstraintValidator<PhoneNumber, St
 
 
     @Override
-    public void initialize(PhoneNumber phoneNumber) {
-        //init method
-    }
-
-
-    @Override
     public boolean isValid(String phoneNumber, ConstraintValidatorContext context) {
         Pattern pattern = Pattern.compile(patterns);
         Matcher matcher = pattern.matcher(phoneNumber);

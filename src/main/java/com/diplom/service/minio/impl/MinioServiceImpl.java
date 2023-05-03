@@ -47,7 +47,7 @@ public class MinioServiceImpl implements MinioService {
     }
 
     @Override
-    public List<Item> fullList() throws MinioException {
+    public List<Item> fullList() {
         Iterable<Result<Item>> myObjects = minioClient.listObjects(ListObjectsArgs.builder()
                 .bucket(properties.getBucket())
                 .build());
