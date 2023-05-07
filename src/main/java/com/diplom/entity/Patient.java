@@ -17,7 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Positive;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,10 +59,9 @@ public class Patient {
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
-    @Positive
     @NonNull
-    @Column(name = "age", nullable = false)
-    private Integer age;
+    @Column(name = "birthDate", nullable = false)
+    private LocalDate birthDate;
 
     @Column(name = "gender")
     @Enumerated(EnumType.STRING)

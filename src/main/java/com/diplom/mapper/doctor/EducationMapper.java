@@ -1,6 +1,6 @@
 package com.diplom.mapper.doctor;
 
-import com.diplom.dto.doctor.request.EducationRequestDto;
+import com.diplom.dto.doctor.request.create.EducationCreateRequestDto;
 import com.diplom.dto.doctor.response.EducationResponseDto;
 import com.diplom.entity.Education;
 import org.mapstruct.InjectionStrategy;
@@ -16,5 +16,5 @@ public interface EducationMapper {
 
     EducationResponseDto entityToDto(Education education);
 
-    Education dtoToEntity(EducationRequestDto dto);
+    Education dtoToEntity(EducationCreateRequestDto dto);
 }

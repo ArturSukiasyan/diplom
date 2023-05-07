@@ -2,7 +2,7 @@ package com.diplom.dto.doctor;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
 
@@ -16,8 +16,8 @@ import static com.diplom.enums.Constants.DATE_PATTERN;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
-public abstract class ExperienceDto {
+@NoArgsConstructor
+public abstract class ExperienceRequestDto {
 
     @NotNull(message = "{mandatory.startDate}")
     @JsonFormat(pattern = DATE_PATTERN)
@@ -43,5 +43,4 @@ public abstract class ExperienceDto {
 
     @NotNull(message = "{experience.mandatory.companyAddress}")
     private String companyAddress;
-
 }

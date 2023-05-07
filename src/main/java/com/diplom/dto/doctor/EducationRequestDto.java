@@ -17,7 +17,7 @@ import static com.diplom.enums.Constants.DATE_PATTERN;
 @Getter
 @Setter
 @NoArgsConstructor
-public abstract class EducationDto {
+public abstract class EducationRequestDto {
 
     @NotNull(message = "{mandatory.startDate}")
     @JsonFormat(pattern = DATE_PATTERN)
@@ -39,5 +39,4 @@ public abstract class EducationDto {
     @Nullable
     @Size(max = 50, message = "{education.invalid.faculty}")
     private String faculty;
-
 }

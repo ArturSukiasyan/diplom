@@ -1,18 +1,21 @@
 package com.diplom.dto.doctor.response;
 
-import com.diplom.dto.doctor.ExperienceDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class ExperienceResponseDto extends ExperienceDto {
+public class ExperienceResponseDto {
 
-    @NotNull
     private Long id;
-
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private String description;
+    private String title;
+    private String companyName;
+    private String companyAddress;
 }
