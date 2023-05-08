@@ -48,9 +48,8 @@ public class Doctor {
     @Column(name = "password", nullable = false, unique = true)
     private String password;
 
-    @NonNull
-    @Column(name = "about", nullable = false)
-    private String about;
+    @Column(name = "description")
+    private String description;
 
     @NonNull
     @Column(name = "firstName", nullable = false)

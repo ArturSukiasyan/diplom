@@ -1,7 +1,7 @@
-package com.diplom.mapper.doctor;
+package com.diplom.mapper;
 
-import com.diplom.dto.doctor.request.create.EducationCreateRequestDto;
-import com.diplom.dto.doctor.response.EducationResponseDto;
+import com.diplom.dto.subclasses.request.create.EducationCreateRequestDto;
+import com.diplom.dto.subclasses.response.EducationResponseDto;
 import com.diplom.entity.Education;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;

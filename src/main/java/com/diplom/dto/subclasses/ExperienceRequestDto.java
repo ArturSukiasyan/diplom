@@ -1,4 +1,4 @@
-package com.diplom.dto.doctor;
+package com.diplom.dto.subclasses;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

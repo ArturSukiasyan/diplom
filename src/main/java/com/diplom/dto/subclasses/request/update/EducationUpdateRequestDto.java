@@ -1,6 +1,6 @@
-package com.diplom.dto.doctor.request.update;
+package com.diplom.dto.subclasses.request.update;
 
-import com.diplom.dto.doctor.EducationRequestDto;
+import com.diplom.dto.subclasses.EducationRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

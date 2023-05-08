@@ -1,5 +1,11 @@
 package com.diplom.service.patient.impl;
 
+import com.diplom.dto.patient.request.PatientCreateRequestDto;
+import com.diplom.dto.patient.request.PatientUpdateRequestDto;
+import com.diplom.dto.patient.response.PatientResponseDto;
+import com.diplom.entity.Patient;
+import com.diplom.exception.PatientNotFoundException;
+import com.diplom.mapper.PatientMapper;
 import com.diplom.repository.PatientRepository;
 import com.diplom.service.patient.PatientService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +18,43 @@ import org.springframework.stereotype.Service;
 public class PatientServiceImpl implements PatientService {
 
     private final PatientRepository patientRepository;
+    private final PatientMapper patientMapper;
+
+    @Override
+    public PatientResponseDto getById(Long id) {
+        log.info("Getting Patient by id : {}", id);
+        var patient = patientRepository.findById(id);
+        if (patient.isEmpty()) {
+            log.error("Failed to get Patient.");
+            throw new PatientNotFoundException(id);
+        } else {
+            log.info("Patient was been getting successfully");
+            return patientMapper.entityToDto(patient.get());
+        }
+    }
+
+    @Override
+    public boolean delete(Long id) {
+        //todo
+        return true;
+    }
+
+    @Override
+    public PatientResponseDto create(PatientCreateRequestDto dto) {
+        log.info("Start saving Patient by this data : {}", dto.toString());
+        Patient patient = patientRepository.save(patientMapper.dtoToEntity(dto));
+
+        log.info("Patient successfully created by id : {}", patient.getId());
+
+        return patientMapper.entityToDto(patient);
+
+    }
+
+    @Override
+    public PatientResponseDto update(PatientUpdateRequestDto dto) {
+        //todo
+        return null;
+    }
 
     @Override
     public boolean fieldValueExists(Object value, String fieldName) throws UnsupportedOperationException {

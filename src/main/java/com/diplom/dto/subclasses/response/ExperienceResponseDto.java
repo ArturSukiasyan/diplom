@@ -1,4 +1,4 @@
-package com.diplom.dto.doctor.response;
+package com.diplom.dto.subclasses.response;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
