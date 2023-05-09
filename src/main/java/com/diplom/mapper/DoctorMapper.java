@@ -1,5 +1,9 @@
-package com.diplom.mapper.doctor;
+package com.diplom.mapper;
 
+import com.diplom.dto.doctor.request.DoctorCreateRequestDto;
+import com.diplom.dto.doctor.request.DoctorUpdateRequestDto;
+import com.diplom.dto.doctor.response.DoctorResponseDto;
+import com.diplom.entity.Doctor;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValueMappingStrategy;
@@ -11,10 +15,10 @@ import org.mapstruct.ReportingPolicy;
         nullValueMappingStrategy = NullValueMappingStrategy.RETURN_NULL,
         uses = {CertificateMapper.class, EducationMapper.class, ExperienceMapper.class})
 public interface DoctorMapper {
-//
-//    EmployeeResponseDto entityToDto(Employee employee);
-//
-//    Employee dtoToEntity(EmployeeCreateRequestDto dto);
-//
-//    Employee dtoToEntity(EmployeeUpdateRequestDto dto);
+
+    DoctorResponseDto entityToDto(Doctor Doctor);
+
+    Doctor dtoToEntity(DoctorCreateRequestDto dto);
+
+    Doctor dtoToEntity(DoctorUpdateRequestDto dto);
 }

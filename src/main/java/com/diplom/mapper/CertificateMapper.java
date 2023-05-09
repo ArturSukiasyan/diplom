@@ -1,8 +1,8 @@
-package com.diplom.mapper.doctor;
+package com.diplom.mapper;
 
-import com.diplom.dto.doctor.request.create.ExperienceCreateRequestDto;
-import com.diplom.dto.doctor.response.ExperienceResponseDto;
-import com.diplom.entity.Experience;
+import com.diplom.dto.subclasses.request.create.CertificateCreateRequestDto;
+import com.diplom.dto.subclasses.response.CertificateResponseDto;
+import com.diplom.entity.Certificate;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValueMappingStrategy;
@@ -12,10 +12,10 @@ import org.mapstruct.ReportingPolicy;
         unmappedTargetPolicy = ReportingPolicy.WARN,
         injectionStrategy = InjectionStrategy.FIELD,
         nullValueMappingStrategy = NullValueMappingStrategy.RETURN_NULL)
-public interface ExperienceMapper {
+public interface CertificateMapper {
 
-    ExperienceResponseDto entityToDto(Experience experience);
+    CertificateResponseDto entityToDto(Certificate certificate);
 
-    Experience dtoToEntity(ExperienceCreateRequestDto dto);
+    Certificate dtoToEntity(CertificateCreateRequestDto dto);
 
 }
