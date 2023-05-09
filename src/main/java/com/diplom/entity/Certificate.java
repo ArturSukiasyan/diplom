@@ -3,8 +3,6 @@ package com.diplom.entity;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.Column;
@@ -12,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.time.LocalDate;
 
@@ -24,7 +21,7 @@ public class Certificate {
 
     @Id
     @NonNull
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -44,7 +41,4 @@ public class Certificate {
     @Column(name = "fileName", nullable = false)
     private String fileName;
 
-    @ManyToOne(optional = false)
-    @Fetch(FetchMode.JOIN)
-    private Doctor doctor;
 }

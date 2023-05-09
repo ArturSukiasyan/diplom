@@ -2,9 +2,9 @@ package com.diplom.dto.doctor;
 
 import com.diplom.annotation.PhoneNumber;
 import com.diplom.annotation.Unique;
-import com.diplom.entity.Certificate;
-import com.diplom.entity.Education;
-import com.diplom.entity.Experience;
+import com.diplom.dto.subclasses.CertificateRequestDto;
+import com.diplom.dto.subclasses.EducationRequestDto;
+import com.diplom.dto.subclasses.ExperienceRequestDto;
 import com.diplom.service.doctor.DoctorService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,12 +47,4 @@ public abstract class DoctorDto {
 
     @NotNull(message = "{doctor.mandatory.yearsOfExperience}")
     private Integer yearsOfExperience;
-
-    @NotEmpty(message = "{doctor.mandatory.educations}")
-    private List<Education> educations = new ArrayList<>();
-
-    @NotEmpty(message = "{doctor.mandatory.experiences}")
-    private List<Experience> experiences = new ArrayList<>();
-
-    private List<Certificate> certificates = new ArrayList<>();
 }

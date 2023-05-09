@@ -3,7 +3,6 @@ package com.diplom.controller;
 import com.diplom.dto.minio.FileResponse;
 import com.diplom.service.minio.FileStorageService;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import io.swagger.v3.oas.annotations.tags.Tags;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpStatus;
@@ -19,8 +18,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-@Tag(name = "File")
 @RestController
+@Tag(name = "File")
 @RequiredArgsConstructor
 @RequestMapping(value = "/file")
 public class FileController {

@@ -16,7 +16,7 @@ import org.mapstruct.ReportingPolicy;
         uses = {CertificateMapper.class, EducationMapper.class, ExperienceMapper.class})
 public interface DoctorMapper {
 
-    DoctorResponseDto entityToDto(Doctor Doctor);
+    DoctorResponseDto entityToDto(Doctor doctor);
 
     Doctor dtoToEntity(DoctorCreateRequestDto dto);
 

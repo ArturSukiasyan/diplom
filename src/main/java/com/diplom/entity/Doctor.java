@@ -26,7 +26,7 @@ public class Doctor {
 
     @Id
     @NonNull
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -40,13 +40,13 @@ public class Doctor {
     @Column(name = "phoneNumber", nullable = false, unique = true)
     private String phoneNumber;
 
-    @NonNull
-    @Column(name = "username", nullable = false, unique = true)
-    private String username;
-
-    @NonNull
-    @Column(name = "password", nullable = false, unique = true)
-    private String password;
+//    @NonNull
+//    @Column(name = "username", nullable = false, unique = true)
+//    private String username;
+//
+//    @NonNull
+//    @Column(name = "password", nullable = false, unique = true)
+//    private String password;
 
     @Column(name = "description")
     private String description;
@@ -66,7 +66,6 @@ public class Doctor {
     @NonNull
     @Column(name = "yearsOfExperience", nullable = false)
     private Integer yearsOfExperience;
-
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "doctor_id")
