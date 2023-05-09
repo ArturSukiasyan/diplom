@@ -17,7 +17,7 @@ public class LoggingAspect {
         //service method pointcut
     }
 
-    @Pointcut("within(@org.springframework.stereotype.Controller com.diplom.controller..*)")
+    @Pointcut("within(@org.springframework.web.bind.annotation.RestController com.diplom.controller..*)")
     public void controllerMethods() {
         //controller method pointcut
     }
