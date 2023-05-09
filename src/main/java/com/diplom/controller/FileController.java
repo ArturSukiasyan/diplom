@@ -2,12 +2,13 @@ package com.diplom.controller;
 
 import com.diplom.dto.minio.FileResponse;
 import com.diplom.service.minio.FileStorageService;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.tags.Tags;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,9 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-@Controller
+@Tag(name = "File")
+@RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/file")
 public class FileController {
@@ -36,11 +39,11 @@ public class FileController {
     public ResponseEntity<InputStreamResource> viewFile(@PathVariable String file) {
         FileResponse source = fileStorageService.getFile(file);
         return ResponseEntity
-                .ok()
-                .contentType(MediaType.parseMediaType(source.getContentType()))
-                .contentLength(source.getFileSize())
-                .header("Content-disposition", "attachment; filename=" + source.getFilename())
-                .body(source.getStream());
+            .ok()
+            .contentType(MediaType.parseMediaType(source.getContentType()))
+            .contentLength(source.getFileSize())
+            .header("Content-disposition", "attachment; filename=" + source.getFilename())
+            .body(source.getStream());
     }
 
     @GetMapping("/download/{file}")
@@ -48,11 +51,11 @@ public class FileController {
     public ResponseEntity<InputStreamResource> downloadFile(@PathVariable String file) {
         FileResponse source = fileStorageService.getFile(file);
         return ResponseEntity
-                .ok()
-                .contentType(MediaType.APPLICATION_OCTET_STREAM)
-                .contentLength(source.getFileSize())
-                .header("Content-disposition", "attachment; filename=" + source.getFilename())
-                .body(source.getStream());
+            .ok()
+            .contentType(MediaType.APPLICATION_OCTET_STREAM)
+            .contentLength(source.getFileSize())
+            .header("Content-disposition", "attachment; filename=" + source.getFilename())
+            .body(source.getStream());
     }
 
     @DeleteMapping("/{file}")
