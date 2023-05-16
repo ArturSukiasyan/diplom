@@ -10,6 +10,7 @@ import com.diplom.repository.PatientRepository;
 import com.diplom.service.patient.PatientService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -34,9 +35,13 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
-    public boolean delete(Long id) {
-        //todo
-        return true;
+    public void delete(Long id) {
+        log.info("Start deleting Patient by id : {}", id);
+        try {
+            patientRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException exception) {
+            throw new PatientNotFoundException(id);
+        }
     }
 
     @Override
@@ -47,13 +52,16 @@ public class PatientServiceImpl implements PatientService {
         log.info("Patient successfully created by id : {}", patient.getId());
 
         return patientMapper.entityToDto(patient);
-
     }
 
     @Override
     public PatientResponseDto update(PatientUpdateRequestDto dto) {
-        //todo
-        return null;
+        log.info("Start updating Patient by this data : {}", dto.toString());
+        Patient patient = patientRepository.save(patientMapper.dtoToEntity(dto));
+
+        log.info("Patient successfully updated by id : {}", patient.getId());
+
+        return patientMapper.entityToDto(patient);
     }
 
     @Override

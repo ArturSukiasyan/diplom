@@ -8,6 +8,7 @@ class DiplomApiApplicationTests {
 
     @Test
     void contextLoads() {
+        assert (true);
     }
 
 }

@@ -7,10 +7,10 @@ import com.diplom.entity.Doctor;
 import com.diplom.exception.DoctorNotFoundException;
 import com.diplom.mapper.DoctorMapper;
 import com.diplom.repository.DoctorRepository;
-import com.diplom.repository.PatientRepository;
 import com.diplom.service.doctor.DoctorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,9 +35,13 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public boolean delete(Long id) {
-        //todo
-        return true;
+    public void delete(Long id) {
+        log.info("Start deleting Doctor by id : {}", id);
+        try {
+            doctorRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException exception) {
+            throw new DoctorNotFoundException(id);
+        }
     }
 
     @Override
@@ -53,8 +57,12 @@ public class DoctorServiceImpl implements DoctorService {
 
     @Override
     public DoctorResponseDto update(DoctorUpdateRequestDto dto) {
-        //todo
-        return null;
+        log.info("Start updating Doctor by this data : {}", dto.toString());
+        Doctor doctor = doctorRepository.save(doctorMapper.dtoToEntity(dto));
+
+        log.info("Doctor successfully updated by id : {}", doctor.getId());
+
+        return doctorMapper.entityToDto(doctor);
     }
 
     @Override

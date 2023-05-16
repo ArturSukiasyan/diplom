@@ -9,7 +9,7 @@ public interface DoctorService extends FieldValueExists {
 
     DoctorResponseDto getById(Long id);
 
-    boolean delete(Long id);
+    void delete(Long id);
 
     DoctorResponseDto create(DoctorCreateRequestDto dto);
 
