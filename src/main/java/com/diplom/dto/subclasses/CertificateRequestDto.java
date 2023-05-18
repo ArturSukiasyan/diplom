@@ -15,14 +15,14 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public abstract class CertificateRequestDto {
 
-    @NotNull(message = "{certificate.mandatory.file}")
+    @NotNull(message = "certificate.mandatory.file")
     private MultipartFile file;
 
-    @NotBlank(message = "{mandatory.title}")
-    @Size(max = 50, message = "{invalid.title}")
+    @NotBlank(message = "mandatory.title")
+    @Size(max = 50, message = "invalid.title")
     private String title;
 
     @Nullable
-    @Size(max = 250, message = "{invalid.description}")
+    @Size(max = 250, message = "invalid.description")
     private String description;
 }

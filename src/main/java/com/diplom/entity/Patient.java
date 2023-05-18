@@ -33,7 +33,7 @@ public class Patient {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Email
+    @Email(message = "invalid.email")
     @NonNull
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -43,13 +43,13 @@ public class Patient {
     @Column(name = "phoneNumber", nullable = false, unique = true)
     private String phoneNumber;
 
-    @NonNull
-    @Column(name = "username", nullable = false, unique = true)
-    private String username;
-
-    @NonNull
-    @Column(name = "password", nullable = false, unique = true)
-    private String password;
+//    @NonNull
+//    @Column(name = "username", nullable = false, unique = true)
+//    private String username;
+//
+//    @NonNull
+//    @Column(name = "password", nullable = false, unique = true)
+//    private String password;
 
     @NonNull
     @Column(name = "firstName", nullable = false)

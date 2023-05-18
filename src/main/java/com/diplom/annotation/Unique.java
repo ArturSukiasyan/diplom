@@ -18,7 +18,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = UniqueValidator.class)
 @Documented
 public @interface Unique {
-    String message() default "{unique.value.violation}";
+    String message() default "unique.value.violation";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
     Class<? extends FieldValueExists> service();

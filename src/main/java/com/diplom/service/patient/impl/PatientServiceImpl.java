@@ -57,8 +57,11 @@ public class PatientServiceImpl implements PatientService {
     @Override
     public PatientResponseDto update(PatientUpdateRequestDto dto) {
         log.info("Start updating Patient by this data : {}", dto.toString());
-        Patient patient = patientRepository.save(patientMapper.dtoToEntity(dto));
+        if (patientRepository.findById(dto.getId()).isEmpty()) {
+            throw new PatientNotFoundException(dto.getId());
+        }
 
+        Patient patient = patientRepository.save(patientMapper.dtoToEntity(dto));
         log.info("Patient successfully updated by id : {}", patient.getId());
 
         return patientMapper.entityToDto(patient);

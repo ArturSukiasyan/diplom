@@ -1,6 +1,7 @@
 package com.diplom.mapper;
 
 import com.diplom.dto.subclasses.request.create.EducationCreateRequestDto;
+import com.diplom.dto.subclasses.request.update.EducationUpdateRequestDto;
 import com.diplom.dto.subclasses.response.EducationResponseDto;
 import com.diplom.entity.Education;
 import org.mapstruct.InjectionStrategy;
@@ -17,4 +18,6 @@ public interface EducationMapper {
     EducationResponseDto entityToDto(Education education);
 
     Education dtoToEntity(EducationCreateRequestDto dto);
+
+    Education dtoToEntity(EducationUpdateRequestDto dto);
 }

@@ -18,13 +18,13 @@ import java.util.List;
 @NoArgsConstructor
 public class DoctorUpdateRequestDto extends DoctorDto {
 
-    @NotBlank(message = "{mandatory.id}")
+    @NotBlank(message = "mandatory.id")
     private Long id;
 
-    @NotEmpty(message = "{doctor.mandatory.educations}")
+    @NotEmpty(message = "doctor.mandatory.educations")
     private List<EducationUpdateRequestDto> educations = new ArrayList<>();
 
-    @NotEmpty(message = "{doctor.mandatory.experiences}")
+    @NotEmpty(message = "doctor.mandatory.experiences")
     private List<ExperienceUpdateRequestDto> experiences = new ArrayList<>();
 
     private List<CertificateUpdateRequestDto> certificates = new ArrayList<>();

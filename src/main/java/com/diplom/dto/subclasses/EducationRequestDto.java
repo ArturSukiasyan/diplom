@@ -19,24 +19,24 @@ import static com.diplom.enums.Constants.DATE_PATTERN;
 @NoArgsConstructor
 public abstract class EducationRequestDto {
 
-    @NotNull(message = "{mandatory.startDate}")
+    @NotNull(message = "mandatory.startDate")
     @JsonFormat(pattern = DATE_PATTERN)
-    @Past(message = "{invalid.startDate}")
+    @Past(message = "invalid.startDate")
     private LocalDate startDate;
 
     @JsonFormat(pattern = DATE_PATTERN)
-    @Past(message = "{invalid.endDate}")
+    @Past(message = "invalid.endDate")
     private LocalDate endDate;
 
-    @Size(max = 50, message = "{education.invalid.place}")
-    @NotBlank(message = "{education.mandatory.place}")
+    @Size(max = 50, message = "education.invalid.place")
+    @NotBlank(message = "education.mandatory.place")
     private String place;
 
     @Nullable
-    @Size(max = 250, message = "{invalid.description}")
+    @Size(max = 250, message = "invalid.description")
     private String description;
 
     @Nullable
-    @Size(max = 50, message = "{education.invalid.faculty}")
+    @Size(max = 50, message = "education.invalid.faculty")
     private String faculty;
 }

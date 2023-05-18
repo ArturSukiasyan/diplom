@@ -24,28 +24,28 @@ import static com.diplom.enums.Constants.DATE_PATTERN;
 @NoArgsConstructor
 public abstract class PatientDto {
 
-    @Email
-    @NotBlank(message = "{mandatory.email}")
-    @Unique(service = PatientService.class, fieldName = "email", message = "{email.unique.violation}")
+    @Email(message = "invalid.email")
+    @NotBlank(message = "mandatory.email")
+    @Unique(service = PatientService.class, fieldName = "email", message = "email.unique.violation")
     private String email;
 
     @PhoneNumber
-    @NotBlank(message = "{mandatory.phone}")
-    @Unique(service = PatientService.class, fieldName = "phoneNumber", message = "{phone.unique.violation}")
+    @NotBlank(message = "mandatory.phone")
+    @Unique(service = PatientService.class, fieldName = "phoneNumber", message = "phone.unique.violation")
     private String phoneNumber;
 
-    @NotBlank(message = "{mandatory.firstName}")
+    @NotBlank(message = "mandatory.firstName")
     private String firstName;
 
-    @NotBlank(message = "{mandatory.lastName}")
+    @NotBlank(message = "mandatory.lastName")
     private String lastName;
 
     @NotNull(message = "patient.mandatory.birthDate")
-    @Past(message = "{patient.invalid.birthDate}")
+    @Past(message = "patient.invalid.birthDate")
     @JsonFormat(pattern = DATE_PATTERN)
     private LocalDate birthDate;
 
-    @NotNull(message = "{patient.mandatory.gender}")
+    @NotNull(message = "patient.mandatory.gender")
     private Gender gender;
 
     private List<String> medicalHistory = new ArrayList<>();

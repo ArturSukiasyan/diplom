@@ -58,8 +58,11 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public DoctorResponseDto update(DoctorUpdateRequestDto dto) {
         log.info("Start updating Doctor by this data : {}", dto.toString());
-        Doctor doctor = doctorRepository.save(doctorMapper.dtoToEntity(dto));
+        if (doctorRepository.findById(dto.getId()).isEmpty()) {
+            throw new DoctorNotFoundException(dto.getId());
+        }
 
+        Doctor doctor = doctorRepository.save(doctorMapper.dtoToEntity(dto));
         log.info("Doctor successfully updated by id : {}", doctor.getId());
 
         return doctorMapper.entityToDto(doctor);
