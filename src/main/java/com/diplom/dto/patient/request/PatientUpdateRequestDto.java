@@ -12,7 +12,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class PatientUpdateRequestDto extends PatientDto {
 
-    @NotBlank(message = "{mandatory.id}")
+    @NotBlank(message = "mandatory.id")
     private Long id;
 
 }

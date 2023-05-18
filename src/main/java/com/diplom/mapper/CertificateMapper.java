@@ -1,6 +1,7 @@
 package com.diplom.mapper;
 
 import com.diplom.dto.subclasses.request.create.CertificateCreateRequestDto;
+import com.diplom.dto.subclasses.request.update.CertificateUpdateRequestDto;
 import com.diplom.dto.subclasses.response.CertificateResponseDto;
 import com.diplom.entity.Certificate;
 import org.mapstruct.InjectionStrategy;
@@ -17,5 +18,7 @@ public interface CertificateMapper {
     CertificateResponseDto entityToDto(Certificate certificate);
 
     Certificate dtoToEntity(CertificateCreateRequestDto dto);
+
+    Certificate dtoToEntity(CertificateUpdateRequestDto dto);
 
 }

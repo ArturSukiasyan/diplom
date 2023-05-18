@@ -17,10 +17,10 @@ import java.util.List;
 @NoArgsConstructor
 public class DoctorCreateRequestDto extends DoctorDto {
 
-    @NotEmpty(message = "{doctor.mandatory.educations}")
+    @NotEmpty(message = "doctor.mandatory.educations")
     private List<EducationCreateRequestDto> educations = new ArrayList<>();
 
-    @NotEmpty(message = "{doctor.mandatory.experiences}")
+    @NotEmpty(message = "doctor.mandatory.experiences")
     private List<ExperienceCreateRequestDto> experiences = new ArrayList<>();
 
     private List<CertificateCreateRequestDto> certificates = new ArrayList<>();

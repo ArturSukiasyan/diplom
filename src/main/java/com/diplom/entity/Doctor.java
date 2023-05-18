@@ -30,7 +30,7 @@ public class Doctor {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Email
+    @Email(message = "invalid.email")
     @NonNull
     @Column(name = "email", nullable = false, unique = true)
     private String email;

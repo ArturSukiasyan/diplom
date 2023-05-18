@@ -3,7 +3,9 @@ package com.diplom.controller;
 import com.diplom.dto.doctor.request.DoctorCreateRequestDto;
 import com.diplom.dto.doctor.request.DoctorUpdateRequestDto;
 import com.diplom.dto.doctor.response.DoctorResponseDto;
+import com.diplom.dto.subclasses.response.FeedbackResponseDto;
 import com.diplom.service.doctor.DoctorService;
+import com.diplom.service.doctor.FeedbackService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -28,6 +31,7 @@ import javax.validation.Valid;
 public class DoctorController {
 
     private final DoctorService doctorService;
+    private final FeedbackService feedbackService;
 
     @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<DoctorResponseDto> createDoctor(@RequestBody @Valid DoctorCreateRequestDto dto) {
@@ -53,5 +57,10 @@ public class DoctorController {
         return ResponseEntity.status(200).build();
     }
 
+    @GetMapping(value = "/{id}/feedback")
+    public ResponseEntity<List<FeedbackResponseDto>> getDoctorFeedbacks(final @PathVariable("id") Long doctorId) {
+        List<FeedbackResponseDto> feedbacks = feedbackService.getDoctorFeedbacks(doctorId);
+        return ResponseEntity.ok(feedbacks);
+    }
 
 }

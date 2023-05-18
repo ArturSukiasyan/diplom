@@ -12,6 +12,6 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class CertificateUpdateRequestDto extends CertificateRequestDto {
 
-    @NotBlank(message = "{mandatory.id}")
+    @NotBlank(message = "mandatory.id")
     private Long id;
 }
