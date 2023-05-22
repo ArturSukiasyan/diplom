@@ -3,7 +3,10 @@ package com.diplom.service.patient;
 import com.diplom.dto.patient.request.PatientCreateRequestDto;
 import com.diplom.dto.patient.request.PatientUpdateRequestDto;
 import com.diplom.dto.patient.response.PatientResponseDto;
+import com.diplom.entity.Patient;
 import com.diplom.service.FieldValueExists;
+
+import java.util.Optional;
 
 public interface PatientService extends FieldValueExists {
 
@@ -14,4 +17,8 @@ public interface PatientService extends FieldValueExists {
     PatientResponseDto create(PatientCreateRequestDto dto);
 
     PatientResponseDto update(PatientUpdateRequestDto dto);
+
+    boolean existByUsername(String username);
+
+    Optional<Patient> findByUsername(String username);
 }

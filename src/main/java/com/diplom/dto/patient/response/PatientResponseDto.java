@@ -19,6 +19,8 @@ public class PatientResponseDto {
     private String phoneNumber;
     private String firstName;
     private String lastName;
+    private String username;
+    private String password;
     private LocalDate birthDate;
     private Gender gender;
 

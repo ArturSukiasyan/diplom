@@ -4,6 +4,7 @@ import com.diplom.dto.doctor.request.DoctorCreateRequestDto;
 import com.diplom.dto.doctor.request.DoctorUpdateRequestDto;
 import com.diplom.dto.doctor.response.DoctorResponseDto;
 import com.diplom.dto.subclasses.response.FeedbackResponseDto;
+import com.diplom.enums.Roles;
 import com.diplom.service.doctor.DoctorService;
 import com.diplom.service.doctor.FeedbackService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -11,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -28,16 +31,12 @@ import java.util.List;
 @Tag(name = "Doctor")
 @RequiredArgsConstructor
 @RequestMapping(value = "/doctor")
+@PreAuthorize("hasRole('DOCTOR')")
+@RolesAllowed(Roles.ROLE_DOCTOR)
 public class DoctorController {
 
     private final DoctorService doctorService;
     private final FeedbackService feedbackService;
-
-    @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<DoctorResponseDto> createDoctor(@RequestBody @Valid DoctorCreateRequestDto dto) {
-        DoctorResponseDto doctor = doctorService.create(dto);
-        return ResponseEntity.ok().body(doctor);
-    }
 
     @PutMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<DoctorResponseDto> updateDoctor(@RequestBody @Valid DoctorUpdateRequestDto dto) {
@@ -63,4 +62,13 @@ public class DoctorController {
         return ResponseEntity.ok(feedbacks);
     }
 
+    @PostMapping(
+        value = "/register-doctor", consumes = MediaType.APPLICATION_JSON_VALUE, produces =
+        MediaType.APPLICATION_JSON_VALUE
+    )
+    @PreAuthorize("permitAll()")
+    public ResponseEntity<DoctorResponseDto> createDoctor(@RequestBody @Valid DoctorCreateRequestDto dto) {
+        DoctorResponseDto doctor = doctorService.create(dto);
+        return ResponseEntity.ok().body(doctor);
+    }
 }

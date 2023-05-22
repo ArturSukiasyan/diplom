@@ -19,6 +19,8 @@ public class DoctorResponseDto {
     private String email;
     private String phoneNumber;
     private String firstName;
+    private String username;
+    private String password;
     private String lastName;
     private String description;
     private String specialty;

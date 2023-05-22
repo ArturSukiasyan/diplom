@@ -13,6 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -68,14 +70,27 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public boolean existByUsername(String username) {
+        return patientRepository.existsByUsername(username);
+    }
+
+    @Override
+    public Optional<Patient> findByUsername(String username) {
+        return patientRepository.findByUsername(username);
+    }
+
+    @Override
     public boolean fieldValueExists(Object value, String fieldName) throws UnsupportedOperationException {
 
-        if ("email".equals(fieldName)) {
-            return patientRepository.existsByEmail(value.toString());
-        } else if ("phoneNumber".equals(fieldName)) {
-            return patientRepository.existsByPhoneNumber(value.toString());
+        switch (fieldName) {
+            case "email":
+                return patientRepository.existsByEmail(value.toString());
+            case "phoneNumber":
+                return patientRepository.existsByPhoneNumber(value.toString());
+            case "username":
+                return patientRepository.existsByUsername(value.toString());
+            default:
+                throw new UnsupportedOperationException("Field name not supported");
         }
-
-        throw new UnsupportedOperationException("Field name not supported");
     }
 }
