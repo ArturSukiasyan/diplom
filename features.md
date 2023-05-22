@@ -9,7 +9,8 @@ schedule appointments with doctors conveniently. This can include
 features such as selecting a preferred doctor, choosing an available
 time slot, and receiving appointment confirmations.
 
-2 - Patient Profile Management: Enable patients to create and manage their
+2 - DONE
+- Patient Profile Management: Enable patients to create and manage their
 profiles within the application. This can include features like updating
 personal information, medical history, allergies, and medication
 details. Additionally, you can provide options to upload and store
@@ -37,13 +38,17 @@ feature that enables doctors and patients to have virtual appointments
 when an in-person visit is not required. This can be especially useful
 for follow-up consultations, minor queries, or situations where physical
 presence is challenging.
+https://developers.google.com/calendar/api/guides/create-events?hl=ru#java
+https://developers.google.com/calendar/api/quickstart/java?hl=ru
 
 7 - Appointment Reminders and Notifications: Implement automated appointment
 reminders and notifications to help patients remember their upcoming
 appointments. This can be achieved through email, SMS, or push
 notifications, based on the user's preferences.
+https://www.baeldung.com/spring-email
 
-8 - Reviews and Ratings: Allow patients to provide feedback and rate their
+8 DONE
+- Reviews and Ratings: Allow patients to provide feedback and rate their
 experience with doctors. This feature can help other patients make
 informed decisions when selecting a healthcare provider and contribute
 to building trust within the application.

@@ -40,13 +40,13 @@ public class Doctor {
     @Column(name = "phoneNumber", nullable = false, unique = true)
     private String phoneNumber;
 
-//    @NonNull
-//    @Column(name = "username", nullable = false, unique = true)
-//    private String username;
-//
-//    @NonNull
-//    @Column(name = "password", nullable = false, unique = true)
-//    private String password;
+    @NonNull
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
+
+    @NonNull
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @Column(name = "description")
     private String description;
