@@ -1,6 +1,7 @@
 package com.diplom.repository;
 
 import com.diplom.entity.Doctor;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +17,8 @@ public interface DoctorRepository extends CrudRepository<Doctor, Long> {
     boolean existsByUsername(String username);
 
     Optional<Doctor> findByUsername(String username);
+
+    @Query("SELECT d.sessionDuration from Doctor d where d.id = :id")
+    Integer getSessionDuration(Long id);
 
 }

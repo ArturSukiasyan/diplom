@@ -4,7 +4,6 @@ import com.diplom.annotation.PhoneNumber;
 import com.diplom.annotation.Unique;
 import com.diplom.enums.Gender;
 import com.diplom.service.patient.PatientService;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,8 +15,6 @@ import javax.validation.constraints.Past;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.diplom.enums.Constants.DATE_PATTERN;
 
 @Getter
 @Setter
@@ -42,7 +39,6 @@ public abstract class PatientDto {
 
     @NotNull(message = "patient.mandatory.birthDate")
     @Past(message = "patient.invalid.birthDate")
-    @JsonFormat(pattern = DATE_PATTERN)
     private LocalDate birthDate;
 
     @NotNull(message = "patient.mandatory.gender")

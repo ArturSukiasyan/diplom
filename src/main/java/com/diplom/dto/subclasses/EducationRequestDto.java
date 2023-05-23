@@ -1,6 +1,5 @@
 package com.diplom.dto.subclasses;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,19 +11,15 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
-import static com.diplom.enums.Constants.DATE_PATTERN;
-
 @Getter
 @Setter
 @NoArgsConstructor
 public abstract class EducationRequestDto {
 
     @NotNull(message = "mandatory.startDate")
-    @JsonFormat(pattern = DATE_PATTERN)
     @Past(message = "invalid.startDate")
     private LocalDate startDate;
 
-    @JsonFormat(pattern = DATE_PATTERN)
     @Past(message = "invalid.endDate")
     private LocalDate endDate;
 

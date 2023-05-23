@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface FileStorageService {
 
-    FileResponse addFile(MultipartFile multipartFile);
+    FileResponse addFile(MultipartFile multipartFile, String fileName);
 
     void deleteFile(String fileName);
 

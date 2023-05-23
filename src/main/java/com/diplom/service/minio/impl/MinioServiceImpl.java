@@ -27,11 +27,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import static com.diplom.enums.Constants.MINIO_ERROR_MESSAGE;
-
 @Service
 @RequiredArgsConstructor
 public class MinioServiceImpl implements MinioService {
+
+    public static final String MINIO_ERROR_MESSAGE = "Error while fetching files in Minio";
 
     private final MinioClient minioClient;
     private final MinioConfigurationProperties properties;

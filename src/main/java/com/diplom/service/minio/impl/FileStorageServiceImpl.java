@@ -25,19 +25,21 @@ public class FileStorageServiceImpl implements FileStorageService {
     private final MinioService minioService;
 
     @Override
-    public FileResponse addFile(MultipartFile file) {
-        String filename = file.getOriginalFilename() != null ? file.getOriginalFilename() : file.getName();
+    public FileResponse addFile(MultipartFile file, String fileName) {
+        String filename = fileName != null ? fileName :
+                          file.getOriginalFilename() != null ? file.getOriginalFilename() :
+                          file.getName();
         Path path = Path.of(filename);
         try {
             minioService.upload(path, file.getInputStream(), file.getContentType());
             var metadata = minioService.getMetadata(path);
             log.info("this file {} storage in bucket: {} ", filename, metadata.bucket());
             return FileResponse.builder()
-                    .filename(metadata.object())
-                    .fileSize(metadata.size())
-                    .contentType(metadata.contentType())
-                    .createdTime(Date.from(metadata.lastModified().toInstant()))
-                    .build();
+                .filename(metadata.object())
+                .fileSize(metadata.size())
+                .contentType(metadata.contentType())
+                .createdTime(Date.from(metadata.lastModified().toInstant()))
+                .build();
         } catch (IOException | MinioException ex) {
             throw new IllegalStateException(ex.getMessage());
         }
@@ -62,11 +64,11 @@ public class FileStorageServiceImpl implements FileStorageService {
         InputStreamResource inputStreamResource = new InputStreamResource(inputStream);
 
         return FileResponse.builder()
-                .filename(metadata.object())
-                .fileSize(metadata.size())
-                .contentType(metadata.contentType())
-                .createdTime(Date.from(metadata.lastModified().toInstant()))
-                .stream(inputStreamResource)
-                .build();
+            .filename(metadata.object())
+            .fileSize(metadata.size())
+            .contentType(metadata.contentType())
+            .createdTime(Date.from(metadata.lastModified().toInstant()))
+            .stream(inputStreamResource)
+            .build();
     }
 }

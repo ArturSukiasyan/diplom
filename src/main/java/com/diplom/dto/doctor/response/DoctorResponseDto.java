@@ -23,6 +23,7 @@ public class DoctorResponseDto {
     private String password;
     private String lastName;
     private String description;
+    private Integer sessionDuration;
     private String specialty;
     private Integer yearsOfExperience;
 

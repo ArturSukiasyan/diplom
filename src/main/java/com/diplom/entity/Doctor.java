@@ -52,6 +52,10 @@ public class Doctor {
     private String description;
 
     @NonNull
+    @Column(name = "sessionDuration", nullable = false)
+    private Integer sessionDuration;
+
+    @NonNull
     @Column(name = "firstName", nullable = false)
     private String firstName;
 

@@ -36,6 +36,9 @@ public abstract class DoctorDto {
     @Size(max = 250, message = "invalid.description")
     private String description;
 
+    @NotBlank(message = "mandatory.sessionDuration")
+    private Integer sessionDuration;
+
     @NotBlank(message = "doctor.mandatory.specialty")
     private String specialty;
 
