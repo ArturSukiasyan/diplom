@@ -1,4 +1,4 @@
-package com.diplom.service.security;
+package com.diplom.service;
 
 import org.springframework.security.core.Authentication;
 

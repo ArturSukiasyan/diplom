@@ -5,7 +5,7 @@ import com.diplom.dto.doctor.DoctorDto;
 import com.diplom.dto.subclasses.request.create.CertificateCreateRequestDto;
 import com.diplom.dto.subclasses.request.create.EducationCreateRequestDto;
 import com.diplom.dto.subclasses.request.create.ExperienceCreateRequestDto;
-import com.diplom.service.doctor.DoctorService;
+import com.diplom.service.DoctorService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

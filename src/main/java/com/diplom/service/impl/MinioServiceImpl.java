@@ -1,9 +1,9 @@
-package com.diplom.service.minio.impl;
+package com.diplom.service.impl;
 
 
 import com.diplom.config.MinioConfigurationProperties;
 import com.diplom.exception.MinioFetchException;
-import com.diplom.service.minio.MinioService;
+import com.diplom.service.MinioService;
 import io.minio.GetObjectArgs;
 import io.minio.ListObjectsArgs;
 import io.minio.MinioClient;
@@ -47,28 +47,11 @@ public class MinioServiceImpl implements MinioService {
     }
 
     @Override
-    public List<Item> fullList() {
-        Iterable<Result<Item>> myObjects = minioClient.listObjects(ListObjectsArgs.builder()
-                .bucket(properties.getBucket())
-                .build());
-        return getItems(myObjects);
-    }
-
-    @Override
     public List<Item> list(Path path) {
         Iterable<Result<Item>> myObjects = minioClient.listObjects(ListObjectsArgs.builder()
                 .bucket(properties.getBucket())
                 .prefix(path.toString())
                 .recursive(false)
-                .build());
-        return getItems(myObjects);
-    }
-
-    @Override
-    public List<Item> getFullList(Path path) {
-        Iterable<Result<Item>> myObjects = minioClient.listObjects(ListObjectsArgs.builder()
-                .bucket(properties.getBucket())
-                .prefix(path.toString())
                 .build());
         return getItems(myObjects);
     }

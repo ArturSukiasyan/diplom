@@ -1,10 +1,10 @@
-package com.diplom.service.security.impl;
+package com.diplom.service.impl;
 
 import com.diplom.dto.security.AuthRequest;
 import com.diplom.enums.Roles;
-import com.diplom.service.doctor.DoctorService;
-import com.diplom.service.patient.PatientService;
-import com.diplom.service.security.AuthService;
+import com.diplom.service.DoctorService;
+import com.diplom.service.PatientService;
+import com.diplom.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,4 +1,4 @@
-package com.diplom.service.doctor;
+package com.diplom.service;
 
 import com.diplom.dto.subclasses.request.create.FeedbackCreateRequestDto;
 import com.diplom.dto.subclasses.request.update.FeedbackUpdateRequestDto;

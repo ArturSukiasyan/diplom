@@ -1,9 +1,9 @@
-package com.diplom.service.security.impl;
+package com.diplom.service.impl;
 
 import com.diplom.dto.security.UserDetailsDto;
 import com.diplom.enums.Roles;
-import com.diplom.service.doctor.DoctorService;
-import com.diplom.service.patient.PatientService;
+import com.diplom.service.DoctorService;
+import com.diplom.service.PatientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

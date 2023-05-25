@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Repository
 public interface VisitRepository extends JpaRepository<Visit, Long> {
@@ -23,4 +24,7 @@ public interface VisitRepository extends JpaRepository<Visit, Long> {
         LocalDateTime sessionEndDate
     );
 
+    List<Visit> findAllByDoctorId(Long did);
+
+    List<Visit> findAllByPatientId(Long pid);
 }

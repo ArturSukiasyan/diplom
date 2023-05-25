@@ -1,6 +1,6 @@
-package com.diplom.service.security.impl;
+package com.diplom.service.impl;
 
-import com.diplom.service.security.JwtTokenService;
+import com.diplom.service.JwtTokenService;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.MalformedJwtException;

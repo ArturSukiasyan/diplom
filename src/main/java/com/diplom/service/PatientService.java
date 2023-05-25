@@ -1,10 +1,9 @@
-package com.diplom.service.patient;
+package com.diplom.service;
 
 import com.diplom.dto.patient.request.PatientCreateRequestDto;
 import com.diplom.dto.patient.request.PatientUpdateRequestDto;
 import com.diplom.dto.patient.response.PatientResponseDto;
 import com.diplom.entity.Patient;
-import com.diplom.service.FieldValueExists;
 
 import java.util.Optional;
 

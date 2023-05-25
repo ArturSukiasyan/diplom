@@ -2,7 +2,7 @@ package com.diplom.dto.doctor;
 
 import com.diplom.annotation.PhoneNumber;
 import com.diplom.annotation.Unique;
-import com.diplom.service.doctor.DoctorService;
+import com.diplom.service.DoctorService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
