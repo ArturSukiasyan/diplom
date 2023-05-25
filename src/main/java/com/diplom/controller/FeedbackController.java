@@ -3,7 +3,7 @@ package com.diplom.controller;
 import com.diplom.dto.subclasses.request.create.FeedbackCreateRequestDto;
 import com.diplom.dto.subclasses.request.update.FeedbackUpdateRequestDto;
 import com.diplom.dto.subclasses.response.FeedbackResponseDto;
-import com.diplom.service.doctor.FeedbackService;
+import com.diplom.service.FeedbackService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

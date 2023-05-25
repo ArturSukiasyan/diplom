@@ -1,4 +1,4 @@
-package com.diplom.service.doctor.impl;
+package com.diplom.service.impl;
 
 import com.diplom.dto.subclasses.request.create.FeedbackCreateRequestDto;
 import com.diplom.dto.subclasses.request.update.FeedbackUpdateRequestDto;
@@ -7,7 +7,7 @@ import com.diplom.entity.Feedback;
 import com.diplom.exception.FeedbackNotFoundException;
 import com.diplom.mapper.FeedbackMapper;
 import com.diplom.repository.FeedbackRepository;
-import com.diplom.service.doctor.FeedbackService;
+import com.diplom.service.FeedbackService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -43,7 +43,7 @@ public class FeedbackServiceImpl implements FeedbackService {
     public FeedbackResponseDto edit(FeedbackUpdateRequestDto dto) {
         log.info("Edit feedback :" + dto.toString());
         Feedback feedback = feedbackRepository.findById(dto.getId())
-            .orElseThrow();
+            .orElseThrow(() -> new FeedbackNotFoundException(dto.getId()));
         feedback.setReview(dto.getReview());
         feedback.setRating(dto.getRating());
         feedback = feedbackRepository.save(feedback);

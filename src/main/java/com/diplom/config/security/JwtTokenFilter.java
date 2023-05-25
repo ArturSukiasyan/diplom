@@ -1,6 +1,6 @@
 package com.diplom.config.security;
 
-import com.diplom.service.security.JwtTokenService;
+import com.diplom.service.JwtTokenService;
 import lombok.RequiredArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.http.HttpHeaders;

@@ -1,4 +1,4 @@
-package com.diplom.service.minio;
+package com.diplom.service;
 
 import io.minio.Result;
 import io.minio.StatObjectResponse;
@@ -13,11 +13,7 @@ import java.util.Map;
 public interface MinioService {
     List<Item> list();
 
-    List<Item> fullList() throws MinioException;
-
     List<Item> list(Path path);
-
-    List<Item> getFullList(Path path);
 
     List<Item> getItems(Iterable<Result<Item>> myObjects);
 

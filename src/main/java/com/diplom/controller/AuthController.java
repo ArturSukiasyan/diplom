@@ -1,8 +1,8 @@
 package com.diplom.controller;
 
 import com.diplom.dto.security.AuthRequest;
-import com.diplom.service.security.AuthService;
-import com.diplom.service.security.JwtTokenService;
+import com.diplom.service.AuthService;
+import com.diplom.service.JwtTokenService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;

@@ -2,7 +2,7 @@ package com.diplom.dto.patient.request;
 
 import com.diplom.annotation.Unique;
 import com.diplom.dto.patient.PatientDto;
-import com.diplom.service.patient.PatientService;
+import com.diplom.service.PatientService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

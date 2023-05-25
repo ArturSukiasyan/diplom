@@ -3,7 +3,7 @@ package com.diplom.dto.patient;
 import com.diplom.annotation.PhoneNumber;
 import com.diplom.annotation.Unique;
 import com.diplom.enums.Gender;
-import com.diplom.service.patient.PatientService;
+import com.diplom.service.PatientService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

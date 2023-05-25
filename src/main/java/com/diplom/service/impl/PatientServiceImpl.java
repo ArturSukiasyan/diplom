@@ -1,4 +1,4 @@
-package com.diplom.service.patient.impl;
+package com.diplom.service.impl;
 
 import com.diplom.dto.patient.request.PatientCreateRequestDto;
 import com.diplom.dto.patient.request.PatientUpdateRequestDto;
@@ -7,7 +7,7 @@ import com.diplom.entity.Patient;
 import com.diplom.exception.PatientNotFoundException;
 import com.diplom.mapper.PatientMapper;
 import com.diplom.repository.PatientRepository;
-import com.diplom.service.patient.PatientService;
+import com.diplom.service.PatientService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;

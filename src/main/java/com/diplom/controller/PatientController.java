@@ -4,7 +4,7 @@ import com.diplom.dto.patient.request.PatientCreateRequestDto;
 import com.diplom.dto.patient.request.PatientUpdateRequestDto;
 import com.diplom.dto.patient.response.PatientResponseDto;
 import com.diplom.enums.Roles;
-import com.diplom.service.patient.PatientService;
+import com.diplom.service.PatientService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
