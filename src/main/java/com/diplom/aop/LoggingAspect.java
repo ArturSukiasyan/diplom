@@ -1,4 +1,4 @@
-package com.diplom.aop.loging;
+package com.diplom.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
