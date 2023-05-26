@@ -14,13 +14,17 @@ import com.diplom.service.PatientService;
 import com.diplom.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.List;
 
+import static com.diplom.enums.EmailConstans.REMINDER_ABOUT_VISIT;
 import static com.diplom.enums.EmailConstans.VISIT_CONFIRM_SUBJECT;
 
 @Slf4j
@@ -110,5 +114,18 @@ public class VisitServiceImpl implements VisitService {
         );
 
         return patientVisits;
+    }
+
+    @Scheduled(cron = "30 8 * * * *")
+    public void sendReminderNotificationToPatient() {
+        List<Visit> todayVisits = visitRepository.findTodayVisits(
+            LocalDateTime.now().with(LocalTime.MIN),
+            LocalDateTime.now().with(LocalTime.MAX)
+        );
+        todayVisits.forEach(visit -> {
+            var patient = patientService.getById(visit.getPatientId());
+            var message = "Medical portal want to remind you that you have visit today in " + visit.getVisitingDate();
+            emailService.sendMessage(patient.getEmail(), REMINDER_ABOUT_VISIT, message);
+        });
     }
 }
