@@ -66,7 +66,6 @@ public class DoctorController {
         value = "/register-doctor", consumes = MediaType.APPLICATION_JSON_VALUE, produces =
         MediaType.APPLICATION_JSON_VALUE
     )
-    @PreAuthorize("permitAll()")
     public ResponseEntity<DoctorResponseDto> createDoctor(@RequestBody @Valid DoctorCreateRequestDto dto) {
         DoctorResponseDto doctor = doctorService.create(dto);
         return ResponseEntity.ok().body(doctor);

@@ -5,6 +5,7 @@ import com.diplom.dto.security.VisitPatientResponse;
 import com.diplom.dto.security.VisitRequest;
 import com.diplom.entity.Visit;
 import com.diplom.exception.BusyDoctorException;
+import com.diplom.exception.NotWorkingTimeException;
 import com.diplom.repository.DoctorRepository;
 import com.diplom.repository.VisitRepository;
 import com.diplom.service.DoctorService;
@@ -35,6 +36,7 @@ public class VisitServiceImpl implements VisitService {
 
     @Override
     public void reserve(Long pid, VisitRequest visitRequest) {
+        checkWorkingTime(visitRequest.getVisitingDate());
         var did = visitRequest.getDoctorId();
         var visitDate = visitRequest.getVisitingDate();
         var doctorSessionDuration = doctorRepository.getSessionDuration(did);
@@ -53,6 +55,12 @@ public class VisitServiceImpl implements VisitService {
             var savedVisit = visitRepository.save(visit);
             sendMessageNotifications(pid, did, visitDate);
             log.info("Visit saved by this data:" + savedVisit);
+        }
+    }
+
+    private void checkWorkingTime(LocalDateTime visitingDate) {
+        if (visitingDate.getHour() < 9 || visitingDate.getHour() > 18) {
+            throw new NotWorkingTimeException();
         }
     }
 
