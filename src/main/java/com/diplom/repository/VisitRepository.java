@@ -25,11 +25,10 @@ public interface VisitRepository extends JpaRepository<Visit, Long> {
     );
 
     @Query(
-        "select " +
-        "case when count(v)> 0 then true " +
-        "else false end " +
-        "from Visit v " +
-        "where v.visitingDate >= :visitDate AND v.visitingDate <= :sessionEndDate"
+        "SELECT v " +
+        "FROM Visit v " +
+        "WHERE v.visitingDate >= :visitDate " +
+        "AND v.visitingDate <= :sessionEndDate"
     )
     List<Visit> findTodayVisits(
         LocalDateTime visitDate,

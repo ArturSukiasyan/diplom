@@ -39,7 +39,7 @@ public class FileStorageServiceImpl implements FileStorageService {
         String filename = fileName != null ? fileName :
                           file.getOriginalFilename() != null ? file.getOriginalFilename() :
                           file.getName();
-        Path path = Path.of(filename);
+        Path path = Path.of(String.format("%d/%s", pid, filename));
         try {
             minioService.upload(path, file.getInputStream(), file.getContentType());
             var metadata = minioService.getMetadata(path);
@@ -63,7 +63,7 @@ public class FileStorageServiceImpl implements FileStorageService {
         var patient = patientService.getById(pid);
         var doctor = doctorService.getById(did);
         String subject = DOCUMENT_FROM_DOCTOR + " - " + doctor.getFirstName() + " " + doctor.getLastName();
-        String message = "PLease see attached file from doctor";
+        String message = "Please see attached file from doctor";
         emailService.sendMessageWithAttachment(patient.getEmail(), subject, message, file);
 
     }
